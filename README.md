@@ -1,4 +1,4 @@
-# 📊 API ETL Local con FastAPI
+#  API ETL Local con FastAPI
 
 Este proyecto expone una API construida con **FastAPI** para:
 - Leer los archivos CSV en la carpeta `data/`
@@ -8,7 +8,7 @@ Este proyecto expone una API construida con **FastAPI** para:
 
 ---
 
-## 📥 Cómo usar este proyecto (para mis compañeros)
+##  Cómo usar este proyecto
 
 ### 1. Descargar el proyecto
 - Abre el enlace de Google Drive compartido
@@ -26,8 +26,6 @@ Para verificar instalación:
 python --version
 pip --version
 ```
-
-Si no está instalado, descargar desde 👉 [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
 ---
 
@@ -77,7 +75,6 @@ Copiar el archivo de ejemplo:
   cp .env.example .env
   ```
 
-Editar el archivo `.env` si deseas cambiar configuraciones (ejemplo: clave de acceso `API_KEY`).
 
 ---
 
@@ -86,9 +83,12 @@ Editar el archivo `.env` si deseas cambiar configuraciones (ejemplo: clave de ac
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Esto dejará la API corriendo en:
-👉 [http://localhost:8000](http://localhost:8000)  
-👉 Documentación interactiva: [http://localhost:8000/docs](http://localhost:8000/docs)
+API corriendo en:
+[http://localhost:8000](http://localhost:8000)  
+Documentación interactiva: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+En este caso tenemos la Api subida a un servidor http://srv1037997.hstgr.cloud/docs#/ETL/etl_download_etl_download_get
+el cual puede ver que archivos estamos evaluando, descargar por paginado o una extraccion en csv o xlsx.
 
 ---
 
@@ -113,7 +113,7 @@ Esto dejará la API corriendo en:
 
 ---
 
-## 📂 Carpetas importantes
+## Carpetas importantes
 
 - `data/` → aquí deben estar los CSV originales (de entrada).
 - `db/` → aquí se guardarán los resultados (CSV procesados, Excel o SQLite).
@@ -121,7 +121,7 @@ Esto dejará la API corriendo en:
 
 ---
 
-## 🔐 Variables de entorno (.env)
+## Variables de entorno (.env)
 
 El archivo `.env` controla las configuraciones principales:
 
@@ -137,7 +137,7 @@ SQLITE_TABLE=nhanes_etl
 
 ---
 
-## 🛟 Problemas comunes
+## Problemas comunes
 
 - **401 Unauthorized** → No pusiste el header `X-API-Key`.  
 - **404 Dataset no encontrado** → El nombre del CSV en `data/` no coincide.  
@@ -149,8 +149,23 @@ SQLITE_TABLE=nhanes_etl
 
 ---
 
-## 👩‍💻 Tecnologías usadas
+## Tecnologías usadas
 - **FastAPI** + **Uvicorn**
 - **pandas**, **numpy**
 - **python-dotenv**
 - **xlsxwriter**
+--------------------------------
+## Para hacer uso de cargaMysql - cargaMySql.py
+
+- Se debe configurar los puertos a donde va dirigido 
+    host="72.60.167.78",      
+    user="mario",    
+    password="clave123",
+    database="ercClean"  
+en este caso se tiene configurado el servidor para que suba la base de datos final y pueda poblar la tabla datos_ercclean
+
+-- Lo que hace, es hacer un insert leyendo todo el archivo final que obtuvimos en la api http://srv1037997.hstgr.cloud/docs#/ETL/etl_download_etl_download_get
+  el cual se conecta a un servidor donde esta almacenada la bd en MySql y hace la poblacion de la data limpia. 
+  
+
+
