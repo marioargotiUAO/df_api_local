@@ -1,4 +1,6 @@
-#  API ETL Local con FastAPI
+Nota: Debido a las restricciones de GitHub (límite de 100 MB por archivo), se eliminaron los archivos CSV del repositorio, ya que cada uno superaba los 300 MB.
+
+#  API ETL 
 
 Este proyecto expone una API construida con **FastAPI** para:
 - Leer los archivos CSV en la carpeta `data/`
