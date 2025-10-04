@@ -126,10 +126,10 @@ el cual puede ver que archivos estamos evaluando, descargar por paginado o una e
 El archivo `.env` controla las configuraciones principales:
 
 ```env
-API_KEY=etl-12345          # Clave de acceso a la API
-MAX_JSON_ROWS=100000       # Límite máximo de filas en JSON
-DATA_DIR=data              # Carpeta de entrada
-DB_DIR=db                  # Carpeta de salida
+API_KEY=etl-12345          
+MAX_JSON_ROWS=100000       
+DATA_DIR=data              
+DB_DIR=db                  
 DEFAULT_DOWNLOAD_NAME=df_etl.csv
 SQLITE_PATH=db/etl.db
 SQLITE_TABLE=nhanes_etl
